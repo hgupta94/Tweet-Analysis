@@ -73,16 +73,13 @@ twitterDF %>%
   ggplot(aes(x=retweet_count)) + geom_histogram(binwidth = 1000)
 
 
-#conv <- iconv(twitterDF$text, to = "")
 tweets_source <- VectorSource(twitterDF$text)
 corpus <- Corpus(tweets_source)
 corpus <- tm_map(corpus, content_transformer(tolower))
 corpus <- tm_map(corpus, removePunctuation)
 corpus <- tm_map(corpus, removeNumbers)
 corpus <- tm_map(corpus, content_transformer(removeWords), stopwords('english'))
-#corpus <- tm_map(corpus, stemDocument)
 corpus <- tm_map(corpus, stripWhitespace)
-#corpus <- tm_map(corpus, stemCompletion(corpus))
 corpusDF <- data.frame(text = sapply(corpus, as.character), stringsAsFactors = T)
 
 # Create wordcloud
