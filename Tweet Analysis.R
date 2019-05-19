@@ -39,7 +39,7 @@ consumer_secret <- ''
 access_token <- ''
 access_secret <- ''
 
-token <- create_token(app = "hirshs_app", consumer_key = consumer_key, consumer_secret = consumer_secret,
+token <- create_token(app = "YOUR APP NAME", consumer_key = consumer_key, consumer_secret = consumer_secret,
                       access_token = access_token, access_secret = access_secret)
 
 
